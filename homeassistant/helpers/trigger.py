@@ -594,7 +594,7 @@ def _get_numerical_value(
             return None
         try:
             return float(state.state)
-        except TypeError, ValueError:
+        except (TypeError, ValueError):
             # Entity state is not a valid number
             return None
     return entity_or_float
@@ -634,7 +634,7 @@ class EntityNumericalStateAttributeChangedTriggerBase(EntityTriggerBase):
 
         try:
             current_value = self._converter(_attribute_value)
-        except TypeError, ValueError:
+        except (TypeError, ValueError):
             # Attribute is not a valid number, don't trigger
             return False
 
@@ -761,7 +761,7 @@ class EntityNumericalStateAttributeCrossedThresholdTriggerBase(EntityTriggerBase
 
         try:
             current_value = self._converter(_attribute_value)
-        except TypeError, ValueError:
+        except (TypeError, ValueError):
             # Attribute is not a valid number, don't trigger
             return False
 
